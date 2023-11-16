@@ -2,6 +2,7 @@ package com.api.plataformavagas.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +18,9 @@ public class Candidate {
     private String email;
 
     private String phone;
+
+    @OneToMany
+    private List<Education> educationList;
 
     public int getId() {
         return id;
