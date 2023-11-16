@@ -2,6 +2,7 @@ package com.api.plataformavagas.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +18,17 @@ public class Company {
     private String email;
 
     private String phone;
+
+    @OneToMany(mappedBy = "company")
+    private List<Job> jobs;
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 
     @Override
     public boolean equals(Object o) {
