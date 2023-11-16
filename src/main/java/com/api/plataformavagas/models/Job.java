@@ -20,7 +20,7 @@ public class Job {
     private String type;
 
     @ManyToOne
-    @JoinColumn(name = "companyId")
+    @JoinColumn(name = "company_id")
     private Company company;
 
     @Override
