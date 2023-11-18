@@ -19,6 +19,9 @@ public class Candidate {
 
     private String phone;
 
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany
     private List<Education> educationList;
 

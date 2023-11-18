@@ -19,6 +19,9 @@ public class Company {
 
     private String phone;
 
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
@@ -28,6 +31,14 @@ public class Company {
 
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
