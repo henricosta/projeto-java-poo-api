@@ -25,6 +25,22 @@ public class Candidate {
     @OneToMany
     private List<Education> educationList;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Education> getEducationList() {
+        return educationList;
+    }
+
+    public void setEducationList(List<Education> educationList) {
+        this.educationList = educationList;
+    }
+
     public int getId() {
         return id;
     }
