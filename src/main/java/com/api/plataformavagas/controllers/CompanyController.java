@@ -38,7 +38,7 @@ public class CompanyController {
             c.setPhone(request.getPhone());
             c.setPassword(request.getPassword());
 
-            companyRepository.save(c);
+            this.companyRepository.save(c);
 
             return new ResponseEntity<>("Company successful created.", HttpStatus.CREATED);
         } catch (Exception e) {
