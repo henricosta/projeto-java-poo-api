@@ -2,7 +2,6 @@ package com.api.plataformavagas.controllers;
 
 import com.api.plataformavagas.models.Candidate;
 import com.api.plataformavagas.repositories.CandidateRepository;
-import com.api.plataformavagas.requests.RegisterCandidateRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
