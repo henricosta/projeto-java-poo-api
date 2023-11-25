@@ -10,6 +10,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Candidate implements UserDetails {
     @Id
@@ -25,6 +27,7 @@ public class Candidate implements UserDetails {
     private String phone;
 
     @Column(nullable = false)
+    @JsonIgnore 
     private String password;
 
     @OneToMany
