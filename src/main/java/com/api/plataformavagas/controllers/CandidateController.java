@@ -27,21 +27,4 @@ public class CandidateController {
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-    @PostMapping("/register")
-    public ResponseEntity<String> getCandidateDetails(@RequestBody RegisterCandidateRequest request) {
-        try {
-            Candidate c = new Candidate();
-            c.setName(request.getName());
-            c.setEmail(request.getEmail());
-            c.setPhone(request.getPhone());
-            c.setPassword(request.getPassword());
-
-            this.candidateRepository.save(c);
-
-            return new ResponseEntity<>("Candidate successful created.", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error processing registration request", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 }
