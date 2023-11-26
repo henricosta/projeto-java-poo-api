@@ -56,6 +56,7 @@
     </dependencies>
 
     <build>
+        <finalName>plataforma_vagas</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
