@@ -10,6 +10,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Company implements UserDetails {
     @Id
@@ -25,6 +27,7 @@ public class Company implements UserDetails {
     private String phone;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @OneToMany(mappedBy = "company")
@@ -93,7 +96,8 @@ public class Company implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_CANDIDATE"));
+        System.out.println("Authorities: " + List.of(new SimpleGrantedAuthority("ROLE_COMPANY")));
+        return List.of(new SimpleGrantedAuthority("ROLE_COMPANY"));
     }
 
     @Override
