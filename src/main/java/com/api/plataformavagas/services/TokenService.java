@@ -18,12 +18,12 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
-    public String generateCandidateToken(Candidate user){
+    public String generateCandidateToken(Candidate candidate){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
                     .withIssuer("plataforma-vagas")
-                    .withSubject(user.getEmail())
+                    .withSubject(candidate.getEmail())
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
             return token;
@@ -32,12 +32,12 @@ public class TokenService {
         }
     }
 
-    public String generateCompanyToken(Company user){
+    public String generateCompanyToken(Company company){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
                     .withIssuer("plataforma-vagas")
-                    .withSubject(user.getEmail())
+                    .withSubject(company.getEmail())
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
             return token;
@@ -55,6 +55,7 @@ public class TokenService {
                     .verify(token)
                     .getSubject();
         } catch (JWTVerificationException exception){
+            System.out.println("Erro validando token");
             return "";
         }
     }
