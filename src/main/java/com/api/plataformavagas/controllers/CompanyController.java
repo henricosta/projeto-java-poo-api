@@ -28,22 +28,4 @@ public class CompanyController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-    @PostMapping("/register")
-    public ResponseEntity<String> createCompany(@RequestBody RegisterCompanyRequest request) {
-        try {
-            Company c = new Company();
-            c.setName(request.getName());
-            c.setEmail(request.getEmail());
-            c.setPhone(request.getPhone());
-            c.setPassword(request.getPassword());
-
-            this.companyRepository.save(c);
-
-            return new ResponseEntity<>("Company successful created.", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error processing registration request", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
 }
