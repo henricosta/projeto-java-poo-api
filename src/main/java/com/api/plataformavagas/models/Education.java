@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Education {
 
@@ -20,9 +22,17 @@ public class Education {
     @Column
     private String description;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "candidate_id")
     private Candidate candidate;
+
+    public Education(String title, String institution, String description, Candidate candidate) {
+        this.title = title;
+        this.institution = institution;
+        this.description = description;
+        this.candidate = candidate;
+    }
 
     @Override
     public boolean equals(Object o) {
