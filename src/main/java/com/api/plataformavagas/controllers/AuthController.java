@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.plataformavagas.models.Candidate;
+import com.api.plataformavagas.models.Company;
 import com.api.plataformavagas.repositories.CandidateRepository;
 import com.api.plataformavagas.repositories.CompanyRepository;
 import com.api.plataformavagas.requests.LoginRequest;
 import com.api.plataformavagas.requests.RegisterCandidateRequest;
+import com.api.plataformavagas.requests.RegisterCompanyRequest;
 import com.api.plataformavagas.responses.CandidateLoginResponse;
 import com.api.plataformavagas.services.TokenService;
 
@@ -53,6 +55,24 @@ public class AuthController {
         c.setPassword(encryptedPassword);
 
         this.candidateRepository.save(c);
+        
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/register/company")
+    public ResponseEntity register(@RequestBody RegisterCompanyRequest request){
+        if(this.companyRepository.findByEmail(request.getEmail()) != null) return ResponseEntity.badRequest().build();
+
+        String encryptedPassword = new BCryptPasswordEncoder().encode(request.getPassword());
+
+        
+        Company c = new Company();
+        c.setName(request.getName());
+        c.setEmail(request.getEmail());
+        c.setPhone(request.getPhone());
+        c.setPassword(encryptedPassword);
+
+        this.companyRepository.save(c);
         
         return ResponseEntity.ok().build();
     }
