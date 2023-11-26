@@ -18,6 +18,7 @@ import com.api.plataformavagas.requests.LoginRequest;
 import com.api.plataformavagas.requests.RegisterCandidateRequest;
 import com.api.plataformavagas.requests.RegisterCompanyRequest;
 import com.api.plataformavagas.responses.CandidateLoginResponse;
+import com.api.plataformavagas.responses.CompanyLoginResponse;
 import com.api.plataformavagas.services.TokenService;
 
 @RestController
@@ -42,6 +43,15 @@ public class AuthController {
         
     }
 
+    @PostMapping("/login/company")
+    public ResponseEntity loginCompany(@RequestBody LoginRequest request) {
+        var usernamePassword = new UsernamePasswordAuthenticationToken(request.email(), request.password());
+        var auth = this.authenticationManager.authenticate(usernamePassword);
+
+        var token = tokenService.generateCompanyToken((Company) auth.getPrincipal());
+        return ResponseEntity.ok(new CompanyLoginResponse(token));
+    }
+
     @PostMapping("/register/candidate")
     public ResponseEntity register(@RequestBody RegisterCandidateRequest request){
         if(this.candidateRepository.findByEmail(request.getEmail()) != null) return ResponseEntity.badRequest().build();
@@ -64,7 +74,6 @@ public class AuthController {
         if(this.companyRepository.findByEmail(request.getEmail()) != null) return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(request.getPassword());
-
         
         Company c = new Company();
         c.setName(request.getName());
