@@ -5,12 +5,14 @@ import jakarta.persistence.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Candidate implements UserDetails {
@@ -30,8 +32,13 @@ public class Candidate implements UserDetails {
     @JsonIgnore 
     private String password;
 
+    @JsonManagedReference
     @OneToMany
-    private List<Education> educationList;
+    private Set<Education> educations;
+
+    @JsonManagedReference
+    @ManyToMany(mappedBy = "candidates")
+    private Set<Skill> skills;
 
     public String getPassword() {
         return password;
@@ -41,12 +48,8 @@ public class Candidate implements UserDetails {
         this.password = password;
     }
 
-    public List<Education> getEducationList() {
-        return educationList;
-    }
-
-    public void setEducationList(List<Education> educationList) {
-        this.educationList = educationList;
+    public Set<Education> getEducationList() {
+        return educations;
     }
 
     public int getId() {
