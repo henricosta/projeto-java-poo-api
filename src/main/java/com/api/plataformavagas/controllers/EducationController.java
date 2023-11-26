@@ -12,15 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.plataformavagas.models.Candidate;
 import com.api.plataformavagas.models.Education;
-import com.api.plataformavagas.repositories.CandidateRepository;
 import com.api.plataformavagas.repositories.EducationRepository;
 import com.api.plataformavagas.requests.CreateEducationRequest;
 
 @RestController
 @RequestMapping("/education")
 public class EducationController {
-    @Autowired
-    private CandidateRepository candidateRepository;
     @Autowired
     private EducationRepository educationRepository;
 
