@@ -1,0 +1,185 @@
+{
+  "info": {
+    "name": "API-java",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "add education",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwbGF0YWZvcm1hLXZhZ2FzIiwic3ViIjoicGVkcm8xMjNAZ21haWwuY29tIiwiZXhwIjoxNzAxMDIzNjI1fQ.tns89QrPLq5EtnsEcmi0dRPJENyy2qOHlp9QC3ASNx8",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8080/education/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"administração\",\n  \"description\": \"formacao em administração\",\n  \"institution\": \"instituicao de ensino\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "create job",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/jobs/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"vaga teste 1\",\n  \"description\": \"asijfoajsdfoiajsdfoiajsdofijasdofij soadjfioa sdasdof ij\",\n  \"type\": \"Remoto\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get candidate details",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwbGF0YWZvcm1hLXZhZ2FzIiwic3ViIjoidGVzdHJlZ2lzdGVyNUBlbWFpbC5jb20iLCJleHAiOjE3MDA5NTMxMTB9.5ia2oZRjBrQVfXyjpV_bG1sxWZoXC2qRBwPxnJPhVBg",
+            "disabled": true,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8080/candidates/details?candidate_id=5"
+      }
+    },
+    {
+      "name": "get company details",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/companies/details?company_id=6"
+      }
+    },
+    {
+      "name": "get job details",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://192.168.0.9/jobs/details?job_id=5"
+      }
+    },
+    {
+      "name": "list jobs",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/jobs/list?title=python"
+      }
+    },
+    {
+      "name": "login candidate",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/auth/login/candidate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"pedro123@gmail.com\",\n  \"password\": \"pedro123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "login company",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/auth/login/company",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"empresa4@email.com\",\n  \"password\": \"empresa4\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "register candidate",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/auth/register/candidate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"test_candidate_5\",\n  \"email\": \"testregister5@email.com\",\n  \"phone\": \"8999999999\",\n  \"password\": \"senha123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "register company",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/auth/register/company",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"empresa4\",\n  \"email\": \"empresa4@email.com\",\n  \"phone\": \"8999999999\",\n  \"password\": \"empresa4\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "search jobs by title and type",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://192.168.0.9/jobs/list?title=python&type=remote"
+      }
+    },
+    {
+      "name": "search jobs by title",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://192.168.0.9/jobs/list?title=python"
+      }
+    }
+  ],
+  "variable": []
+}
