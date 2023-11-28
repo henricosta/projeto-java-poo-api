@@ -14,7 +14,7 @@ Projeto desenvolvido para a disciplina de Programação Orientada a Objetos em J
 
 ### Como executar o projeto localmente
 
-O primeiro passo é compilar o projeto com o maven.
+O arquivo compilado já está no diretório /target. Mas caso queira compilar localmente execute seguinte código (O projeto usa Java 21).
 
 `mvn package -DskipTests`
 
