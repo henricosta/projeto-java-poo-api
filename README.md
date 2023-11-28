@@ -1,3 +1,5 @@
+# Plataforma de vagas 
+
 O projeto se trata de uma api de uma plataforma de vagas com autenticação de usuário e persistência de dados em um banco de dados MySql.
 
 Projeto desenvolvido para a disciplina de Programação Orientada a Objetos em Java, ministrada pelo professor Henrique Mota.
