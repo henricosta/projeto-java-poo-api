@@ -1,4 +1,8 @@
 # Plataforma de vagas 
+Integrantes do grupo
+- Pedro Henrique Alves Costa
+- Samuel de Deus Alcantara Fontenele
+- João Vitor Anusauskas Ribeiro de Lima
 
 O projeto se trata de uma api de uma plataforma de vagas com autenticação de usuário e persistência de dados em um banco de dados MySql.
 
