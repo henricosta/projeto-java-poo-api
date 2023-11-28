@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+
+  mysqldb:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: plataforma_vagas
+    networks:
+      spring-mysql-network:
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-mysql-network
+    depends_on:
+      - mysqldb
+    restart: on-failure
+
+ 
+networks:
+  spring-mysql-network:
